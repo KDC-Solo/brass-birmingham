@@ -3,6 +3,7 @@ import { tileSpec } from './data/industries';
 import { COAL_MARKET, IRON_MARKET, buyCost, nextBuyPrice } from './market';
 import { bumpSpaces } from './income';
 import { AUTOMA, HUMAN, log, type GameState } from './state';
+import { CITIES } from './data/board';
 import { connectedToMarket, distancesFrom } from './connectivity';
 
 export interface MineRef {
@@ -20,7 +21,7 @@ export function flipResourceTile(state: GameState, city: CityId, slot: number): 
   if (tile.owner === HUMAN) {
     state.players[HUMAN].incomeSpace = bumpSpaces(state.players[HUMAN].incomeSpace, spec.incomeBump);
   }
-  log(state, `${tile.owner === HUMAN ? 'You' : 'Automa'} flipped ${tile.industry} L${tile.level} in ${city}.`);
+  log(state, `${tile.owner === HUMAN ? 'You' : 'Automa'} flipped ${tile.industry} L${tile.level} in ${CITIES[city].name}.`);
 }
 
 function removeFromTile(state: GameState, city: CityId, slot: number, n: number): number {

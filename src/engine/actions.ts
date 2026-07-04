@@ -288,12 +288,17 @@ function grantMerchantBonus(state: GameState, player: PlayerId, merchantId: keyo
       log(state, `Merchant bonus: +${bonus.amount} VP (${merchantId}).`);
       break;
     case 'money':
-      if (player === HUMAN) p.money += bonus.amount;
-      log(state, `Merchant bonus: +£${bonus.amount} (${merchantId}).`);
+      // The Automa only benefits from VP bonuses (Mautoma FAQ)
+      if (player === HUMAN) {
+        p.money += bonus.amount;
+        log(state, `Merchant bonus: +£${bonus.amount} (${merchantId}).`);
+      }
       break;
     case 'incomeSpaces':
-      if (player === HUMAN) p.incomeSpace = bumpSpaces(p.incomeSpace, bonus.amount);
-      log(state, `Merchant bonus: +${bonus.amount} income spaces (${merchantId}).`);
+      if (player === HUMAN) {
+        p.incomeSpace = bumpSpaces(p.incomeSpace, bonus.amount);
+        log(state, `Merchant bonus: +${bonus.amount} income spaces (${merchantId}).`);
+      }
       break;
     case 'develop': {
       // Remove the lowest developable tile: the human is prompted in the UI;

@@ -1,5 +1,7 @@
 node_modules/
 dist/
+# Rulebook/fan PDFs stay local only — not redistributed
+docs/*.pdf
 *.local
 .DS_Store
 coverage/
