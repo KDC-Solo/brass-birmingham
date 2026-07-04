@@ -112,3 +112,14 @@ test('no horizontal page overflow', async ({ page }) => {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
   expect(overflow).toBe(false);
 });
+
+test('help modal opens from setup and in game', async ({ page }) => {
+  await page.goto('/');
+  await page.getByTestId('help-open').click();
+  await expect(page.getByTestId('help-modal')).toContainText('How to play');
+  await page.getByTestId('help-close').click();
+  await expect(page.getByTestId('help-modal')).toHaveCount(0);
+  await startGame(page);
+  await page.getByTestId('help-open').click();
+  await expect(page.getByTestId('help-modal')).toContainText('The Automa');
+});

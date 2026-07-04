@@ -8,6 +8,7 @@ import type { MautomaDifficulty } from './engine/mautoma/cards';
 import { BoardMap } from './ui/BoardMap';
 import { cardLabel, useActionFlow } from './ui/ActionPanel';
 import { useGame, useTheme } from './ui/useGame';
+import { HelpButton } from './ui/Help';
 
 export default function App() {
   const game = useGame();
@@ -34,6 +35,7 @@ export default function App() {
             </button>
           </>
         )}
+        <HelpButton />
         <button onClick={toggle} data-testid="theme-toggle" aria-label="Toggle dark mode">
           {theme === 'dark' ? '☀️' : '🌙'}
         </button>
