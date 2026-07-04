@@ -123,3 +123,12 @@ test('help modal opens from setup and in game', async ({ page }) => {
   await page.getByTestId('help-open').click();
   await expect(page.getByTestId('help-modal')).toContainText('The Automa');
 });
+
+test('footer branding present with version and disclaimer', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByTestId('footer')).toContainText('Roxley Games');
+  await expect(page.getByTestId('footer')).toContainText('Mauro Gibertoni');
+  await expect(page.getByTestId('footer')).toContainText(/v\d+\.\d+\.\d+/);
+  const icon = page.locator('link[rel="icon"]');
+  await expect(icon).toHaveAttribute('href', './favicon.svg');
+});

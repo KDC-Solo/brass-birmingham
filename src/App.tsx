@@ -41,6 +41,20 @@ export default function App() {
         </button>
       </div>
       {game.state ? <GameScreen state={game.state} dispatch={game.dispatch} /> : <SetupScreen onStart={game.start} />}
+      <footer className="footer" data-testid="footer">
+        <small>State auto-saves to this browser. Use Undo to revert an applied action.</small>
+        <small className="disclaimer">
+          Unofficial fan project for solo play. Not affiliated with or endorsed by Roxley Games or the designers of
+          Brass: Birmingham. No game art or rules text is reproduced. The Mautoma solo variant is by Mauro Gibertoni
+          (mautoma.com).
+        </small>
+        <small className="footer-meta">
+          v{__APP_VERSION__} ·{' '}
+          <a href="https://github.com/KDC-Solo/brass-birmingham" target="_blank" rel="noreferrer">
+            Source &amp; issues on GitHub
+          </a>
+        </small>
+      </footer>
     </div>
   );
 }

@@ -297,6 +297,25 @@ button.selected {
   font-weight: 700;
 }
 
+.footer {
+  margin: 18px auto 10px;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer .disclaimer {
+  opacity: 0.85;
+}
+
+.footer a {
+  color: var(--accent);
+}
+
 @media (max-width: 900px) {
   .game-layout {
     grid-template-columns: 1fr;
