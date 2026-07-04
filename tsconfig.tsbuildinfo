@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/engine/income.test.ts","./src/engine/income.ts","./src/engine/market.test.ts","./src/engine/market.ts","./src/engine/types.ts","./src/engine/data/board.test.ts","./src/engine/data/board.ts","./src/engine/data/industries.test.ts","./src/engine/data/industries.ts"],"version":"5.9.3"}
